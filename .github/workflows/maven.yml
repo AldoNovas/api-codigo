@@ -73,7 +73,6 @@ jobs:
         run: |
           pwd
           ls -l
-          ls -l target
           mvn deploy:deploy-file \
             -DgroupId=danvega.dev \
             -DartifactId=unit-vs-int \
