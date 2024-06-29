@@ -25,5 +25,5 @@ jobs:
       run: mvn clean install
 
     - name: Test with Maven
-      run: chmod 700 mvnw
-      run: ./mvnw test
+      
+      run: chmod 700 mvnw && ./mvnw test
