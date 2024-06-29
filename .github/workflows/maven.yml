@@ -71,8 +71,8 @@ jobs:
 
       - name: Upload to GitHub Packages
         run: |
-          find target -name '*.jar'
-          JAR_FILE=$(find target -name '*.jar'
+          JAR_FILE=$(find target -name '*.jar')
+          echo "JAR_FILE=$JAR_FILE" >> $GITHUB_ENV
           mvn deploy:deploy-file \
             -Dfile=$JAR_FILE \
             -Durl=https://maven.pkg.github.com/AldoNovas/api-codigo \
