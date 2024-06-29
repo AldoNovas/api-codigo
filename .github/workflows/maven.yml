@@ -58,6 +58,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
       - name: Get target directory
         uses: actions/download-artifact@v2
         with:
@@ -72,8 +76,6 @@ jobs:
       - name: Upload to GitHub Packages
         run: |
           pwd
-          ls -l
-          cd target
           ls -l
           JAR_FILE=$(find target -name '*.jar')
           echo "JAR_FILE=$JAR_FILE" >> $GITHUB_ENV
