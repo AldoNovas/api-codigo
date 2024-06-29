@@ -82,8 +82,8 @@ jobs:
     steps:
       - name: Deploy to Apache Maven
         run: |
+          ls -l
           cd target
-          ls -l  # Verifica que el archivo esté presente
           mvn deploy:deploy-file \
             -Durl=https://maven.pkg.github.com/AldoNovas/api-codigo \
             -Dfile=unit-vs-int-0.0.1-SNAPSHOT.jar \
