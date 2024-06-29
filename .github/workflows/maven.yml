@@ -24,6 +24,8 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
 
+    - name: set execute 
+      run: chmod 700 *
+
     - name: Test with Maven
-      
-      run: pwd
+      run: ./mvnw test
