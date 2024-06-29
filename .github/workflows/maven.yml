@@ -54,5 +54,5 @@ jobs:
       - name: Store artifacts
         run: | 
           echo "se subio jar"
-          pwd
+          ls -la
 
