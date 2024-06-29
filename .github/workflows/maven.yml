@@ -67,17 +67,9 @@ jobs:
           name: build-artifact
           path: target/
 
-      - name: Upload to GitHub Packages
-        env:
-          TOKEN_API_GH: ${{ secrets.TOKEN_API_GH }}
-        run: |
-          pwd
-          ls -l
-          mvn deploy:deploy-file \
-            -DgroupId=danvega.dev \
-            -DartifactId=unit-vs-int \
-            -Dversion=0.0.1-SNAPSHOT \
-            -Dfile=target/unit-vs-int-0.0.1-SNAPSHOT.jar \
-            -Durl=https://maven.pkg.github.com/AldoNovas/api-codigo \
-            -DrepositoryId=github \
-            -DaccessToken=$TOKEN_API_GH
+      - name: store jar artifact in guthub
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-vs-int-0.0.1-SNAPSHOT.jar
+          path: target/unit-vs-int-0.0.1-SNAPSHOT.jar
+            
