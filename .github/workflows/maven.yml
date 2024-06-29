@@ -52,6 +52,7 @@ jobs:
     needs: test
     steps:
       - name: Store artifacts
-        run: echo "se subio jar"
-
+        run: | 
+          echo "se subio jar"
+          pwd
 
