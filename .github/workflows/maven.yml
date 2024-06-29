@@ -24,7 +24,7 @@ jobs:
 
     - name: Test with Maven
       run: |
-        chmod -R *
+        chmod -R 700 *
         java -version
         pwd
         ./mvnw verify
