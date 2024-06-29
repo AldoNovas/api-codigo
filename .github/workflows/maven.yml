@@ -77,13 +77,12 @@ jobs:
         run: |
           pwd
           ls -l
-          JAR_FILE=$(find target -name '*.jar')
-          echo "JAR_FILE=$JAR_FILE" >> $GITHUB_ENV
+          ls -l target
           mvn deploy:deploy-file \
             -DgroupId=org.springframework  \  
             -DartifactId=my-artifact \ 
-            -Dversion=1.0.0 \  
-            -Dfile=$JAR_FILE \
+            -Dversion=0.0.1 \  
+            -Dfile=target/unit-vs-int-0.0.1-SNAPSHOT.jar \
             -Durl=https://maven.pkg.github.com/AldoNovas/api-codigo \
             -DrepositoryId=github \
             -DaccessToken=$TOKEN_API_GH
