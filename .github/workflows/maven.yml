@@ -73,6 +73,8 @@ jobs:
         run: |
           pwd
           ls -l
+          cd ..
+          ls -la
           JAR_FILE=$(find target -name '*.jar')
           echo "JAR_FILE=$JAR_FILE" >> $GITHUB_ENV
           mvn deploy:deploy-file \
