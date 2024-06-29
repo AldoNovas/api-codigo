@@ -74,6 +74,9 @@ jobs:
           JAR_FILE=$(find target -name '*.jar')
           echo "JAR_FILE=$JAR_FILE" >> $GITHUB_ENV
           mvn deploy:deploy-file \
+            -DgroupId=com.example  \  # Reemplaza con tu groupId deseado
+            -DartifactId=my-artifact \ # Reemplaza con tu artifactId deseado
+            -Dversion=1.0.0 \   # Reemplaza con tu versión deseada
             -Dfile=$JAR_FILE \
             -Durl=https://maven.pkg.github.com/AldoNovas/api-codigo \
             -DrepositoryId=github \
