@@ -81,10 +81,9 @@ jobs:
 
     steps:
       - name: Deploy to Apache Maven
-  
-            run:|
-            pwd
-            ls -l
+        run:
+            pwd 
+            ls -l 
             cd target 
             mvn deploy:deploy-file \
             -Durl=https://maven.pkg.github.com/AldoNovas/api-codigo \
