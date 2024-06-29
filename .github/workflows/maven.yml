@@ -83,8 +83,8 @@ jobs:
         run: echo "Se deployo Jar en produccion"
 
       - name: Deploy to Apache Maven
-        run: pwd \
-             ls -l \ 
+        run: pwd 
+             ls -l  
              -mvn deploy:deploy-file -Durl=https://maven.pkg.github.com/AldoNovas/api-codigo \
              -Dfile=target/unit-vs-int-0.0.1-SNAPSHOT.jar \
              -DgroupId=danvega.dev \
