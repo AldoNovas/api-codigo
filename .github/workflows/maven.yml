@@ -79,9 +79,9 @@ jobs:
           ls -l
           ls -l target
           mvn deploy:deploy-file \
-            -DgroupId=danvega.dev  \  
+            -DgroupId=danvega.dev \  
             -DartifactId=unit-vs-int \ 
-            -Dversion=0.0.1 \  
+            -Dversion=0.0.1-SNAPSHOT \  
             -Dfile=target/unit-vs-int-0.0.1-SNAPSHOT.jar \
             -Durl=https://maven.pkg.github.com/AldoNovas/api-codigo \
             -DrepositoryId=github \
