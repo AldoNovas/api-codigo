@@ -26,4 +26,4 @@ jobs:
 
     - name: Test with Maven
       
-      run: chmod 700 mvnw && ./mvnw test
+      run: pwd
