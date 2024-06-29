@@ -24,7 +24,7 @@ jobs:
 
     - name: Test with Maven
       run: |
-        sudo su
+        chmod -R *
         java -version
         pwd
         ./mvnw verify
