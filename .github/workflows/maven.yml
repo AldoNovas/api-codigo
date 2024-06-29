@@ -69,8 +69,11 @@ jobs:
           TOKEN_API_GH: ${{ secrets.TOKEN_API_GH }}
 
        - name: Upload to GitHub Packages
-         run: echo "::set-env name=JAR_FILE::$(find target -name '*.jar')"
-
-       - name: Upload Jar to GitHub Packages
-         run: mvn deploy:deploy-file -Dfile=$JAR_FILE -Durl=https://maven.pkg.github.com/AldoNovas/api-codigo -DrepositoryId=github -DaccessToken=$TOKEN_API_GH
-
+         run: |
+            echo $TOKEN_API_GH
+            echo "::set-env name=JAR_FILE::$(find target -name '*.jar')"
+            mvn deploy:deploy-file \
+            -Dfile=$JAR_FILE \
+            -Durl=https://maven.pkg.github.com/OWNER/REPOSITORY \
+            -DrepositoryId=github \
+            -DaccessToken=$TOKEN_API_GH
