@@ -23,7 +23,7 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
-      - name: persit target
+      - name: Persist target directory
         if: always()
         uses: actions/upload-artifact@v2
         with:
@@ -58,13 +58,21 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-       - name: get target dir
-         uses: actions/download-artifact@v2
-         with:
+      - name: Get target directory
+        uses: actions/download-artifact@v2
+        with:
           name: build-artifact
           path: target/
 
-       - run: |
-           ls -la
-           pwd
+      - name: Set up token
+        env:
+          TOKEN_API_GH: ${{ secrets.TOKEN_API_GH }}
 
+      - name: Upload to GitHub Packages
+        run: |
+          echo "::set-env name=JAR_FILE::$(find target -name '*.jar')"
+          mvn deploy:deploy-file \
+            -Dfile=$JAR_FILE \
+            -Durl=https://maven.pkg.github.com/OWNER/REPOSITORY \
+            -DrepositoryId=github \
+            -DaccessToken=$TOKEN_API_GH
