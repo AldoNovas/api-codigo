@@ -54,7 +54,7 @@ jobs:
           ./mvnw verify
 
   store:
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    if: github.event_name == 'push' 
     runs-on: ubuntu-latest
     needs: test
     steps:
@@ -72,4 +72,12 @@ jobs:
         with:
           name: unit-vs-int-0.0.1-SNAPSHOT.jar
           path: target/unit-vs-int-0.0.1-SNAPSHOT.jar
+
+
+  deploy:
+    if: github.event_name == 'push' 
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy jar in apache tomcat
+        run: echo "Se deployo Jar en produccion"
             
