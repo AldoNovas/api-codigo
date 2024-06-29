@@ -71,9 +71,10 @@ jobs:
 
       - name: Upload to GitHub Packages
         run: |
-          echo "::set-env name=JAR_FILE::$(find target -name '*.jar')"
+          find target -name '*.jar'
+          JAR_FILE=$(find target -name '*.jar'
           mvn deploy:deploy-file \
             -Dfile=$JAR_FILE \
-            -Durl=https://maven.pkg.github.com/OWNER/REPOSITORY \
+            -Durl=https://maven.pkg.github.com/AldoNovas/api-codigo \
             -DrepositoryId=github \
             -DaccessToken=$TOKEN_API_GH
