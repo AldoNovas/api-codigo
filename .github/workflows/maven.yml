@@ -81,4 +81,19 @@ jobs:
     steps:
       - name: deploy jar in apache tomcat
         run: echo "Se deployo Jar en produccion"
+
+      - name: Deploy to Apache Maven
+        run: mvn deploy:deploy-file -Durl=https://maven.pkg.github.com/AldoNovas/api-codigo \
+             -Dfile=target/unit-vs-int-0.0.1-SNAPSHOT.jar \
+             -DgroupId=danvega.dev \
+             -DartifactId=unit-vs-int \
+             -Dversion=0.0.1-SNAPSHOT \
+             -Dpackaging=jar \
+             -DrepositoryId=github \
+             -DrepositoryLayout=default \
+             -DuniqueVersion=false \
+             -DgeneratePom=true \
+             -DupdateReleaseInfo=true
+        env:
+          TOKEN_API_GH: ${{ secrets.TOKEN_API_GH }}  # Aquí usas tu token de GitHub como secret
             
