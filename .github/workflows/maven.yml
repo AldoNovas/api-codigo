@@ -81,7 +81,7 @@ jobs:
 
     steps:
       - name: Deploy to Apache Maven
-        run: |
+        run:
             pwd 
             ls -l 
             cd target 
