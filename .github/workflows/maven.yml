@@ -58,6 +58,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
       - name: Get target directory
         uses: actions/download-artifact@v2
         with:
@@ -67,7 +70,9 @@ jobs:
       - name: Set up token
         env:
           TOKEN_API_GH: ${{ secrets.TOKEN_API_GH }}
-        uses: actions/download-artifact@v2
+
+      - name: Change to project directory
+        run: cd AldoNovas/api-codigo
 
       - name: Upload to GitHub Packages
         run: |
